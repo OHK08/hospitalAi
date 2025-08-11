@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 
 # Load the dataset
-df = pd.read_csv('ErWaitTime.csv')
+df = pd.read_csv('../data/raw/ErWaitTime.csv')
 
 # Drop duplicates
 df.drop_duplicates(inplace=True)

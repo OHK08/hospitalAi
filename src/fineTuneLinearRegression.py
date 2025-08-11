@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load preprocessed data
-X_train = pd.read_csv("X_train.csv")
-X_test = pd.read_csv("X_test.csv")
-y_train = pd.read_csv("y_train.csv").squeeze()
-y_test = pd.read_csv("y_test.csv").squeeze()
+X_train = pd.read_csv("../data/cleaned/X_train.csv")
+X_test = pd.read_csv("../data/cleaned/X_test.csv")
+y_train = pd.read_csv("../data/cleaned/y_train.csv").squeeze()
+y_test = pd.read_csv("../data/cleaned/y_test.csv").squeeze()
 
 # Remove directly dependent features
 drop_features = [
