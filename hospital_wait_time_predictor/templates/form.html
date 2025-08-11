@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hospital Wait Time Predictor - Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <header class="bg-light py-3 shadow-sm">
+      <div class="container">
+        <h2 class="fw-bold">Enter Visit Details</h2>
+        <a href="{{ url_for('homepage') }}" class="btn btn-outline-secondary">Back to Home</a>
+      </div>
+    </header>
+
+    <main class="container my-5">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="container mt-3">
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm p-4 animate-fadein">
+            <div class="card-body">
+              <form id="predict-form" action="{{ url_for('predict') }}" method="post">
+                <div class="mb-3">
+                  <label for="hospital" class="form-label">Hospital</label>
+                  <select id="hospital" name="hospital_name" class="form-select" required>
+                    {% for h in hospitals %}
+                      <option value="{{ h }}">{{ h }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="urgency" class="form-label">Urgency Level</label>
+                    <select id="urgency" name="urgency_level" class="form-select" required>
+                      {% for u in urgencies %}
+                        <option value="{{ u }}">{{ u }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="visit_date" class="form-label">Date & Time</label>
+                    <input type="datetime-local" id="visit_date" name="visit_date" class="form-control" required>
+                  </div>
+                </div>
+
+                <div class="row g-3 mt-3">
+                  <div class="col-sm-6">
+                    <label for="nurse_ratio" class="form-label">Nurse-to-Patient Ratio</label>
+                    <input type="number" step="0.1" min="0.1" id="nurse_ratio" name="nurse_ratio" class="form-control" value="4" required>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <label for="facility_size" class="form-label">Facility Size (beds)</label>
+                    <input type="number" min="1" id="facility_size" name="facility_size" class="form-control" value="100" required>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4 justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-lg shadow" id="predict-btn">
+                    <span id="btn-text">Predict Wait Time</span>
+                    <span id="btn-spinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" id="reset-btn" class="btn btn-outline-secondary">Reset</button>
+                </div>
+              </form>
+
+              <small class="text-muted mt-3 d-block text-center">Model trained on historical data — results are estimates only.</small>
+            </div>
+          </div>
+
+          <div class="mt-4 text-center">
+            <img src="https://www.boldbi.com/resources/wp-content/uploads/2023/10/hospital-wait-times-featured.webp" alt="hospital form" class="img-fluid rounded shadow animate-slidein">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center py-4 text-muted">
+      © 2025 — Hospital AI · Built with Flask & XGBoost
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>

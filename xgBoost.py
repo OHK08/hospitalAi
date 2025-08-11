@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
+import xgboost
 from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pickle
 
 # Load preprocessed data
 X_train = pd.read_csv("X_train.csv")
@@ -83,3 +85,8 @@ plt.ylabel("Predicted Wait Time (min)")
 plt.title("Actual vs. Predicted Wait Times (XGBoost)")
 plt.tight_layout()
 plt.show()
+
+model = xgboost.XGBRegressor()
+model.fit(X_train, y_train)
+# Save the model
+pickle.dump(model, open('hospital_wait_time_predictor/model.pkl', 'wb'))

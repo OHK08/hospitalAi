@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hospital Wait Time Predictor - Tips to Reduce Wait Time</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Bootstrap Icons for enhanced visuals -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="bg-light py-3 shadow-sm">
+      <div class="container">
+        <h2 class="fw-bold">Tips to Reduce Wait Time</h2>
+        <div class="d-flex gap-2">
+          <a href="{{ url_for('formpage') }}" class="btn btn-outline-secondary">New Prediction</a>
+          <a href="{{ url_for('homepage') }}" class="btn btn-outline-secondary">Home</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Section: Tips Based on Six Sigma and DMAIC -->
+    <main class="container my-5">
+      <section id="tips" class="py-5">
+        <div class="container">
+          <h3 class="fw-bold text-center mb-4 animate-fadein">Reducing Wait Times with Six Sigma and DMAIC</h3>
+          <p class="lead text-center text-muted mb-5 animate-slidein">Our recommendations are grounded in the Six Sigma methodology and the DMAIC framework (Define, Measure, Analyze, Improve, Control) to systematically reduce hospital wait times and enhance operational efficiency. Below are actionable tips for each phase to optimize patient flow and improve satisfaction.</p>
+
+          <div class="row g-4">
+            <!-- Define Phase -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-search me-2 text-primary"></i>Define: Set Clear Goals</h5>
+                  <p class="text-muted">Clearly define the problem of excessive wait times and set specific, measurable goals, such as reducing average wait times by 20% within 6 months.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tip:</strong> Engage stakeholders (staff, patients) to identify pain points and prioritize high-urgency cases.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Use patient feedback surveys to understand expectations and define service-level targets.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Measure Phase -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein" style="animation-delay: 0.2s;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-rulers me-2 text-primary"></i>Measure: Track Wait Times</h5>
+                  <p class="text-muted">Collect data on current wait times, patient volumes, and influencing factors like staffing and facility size.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tip:</strong> Use our predictor tool to monitor wait times by hour, day, or urgency level to establish a baseline.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Implement real-time dashboards to visualize patient flow and identify bottlenecks.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analyze Phase -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein" style="animation-delay: 0.4s;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-bar-chart-line me-2 text-primary"></i>Analyze: Identify Root Causes</h5>
+                  <p class="text-muted">Analyze data to pinpoint causes of delays, such as peak-hour overcrowding or insufficient nurse-to-patient ratios.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class錯class="list-group-item"><strong>Tip:</strong> Use our AI predictions to identify patterns, e.g., high wait times during evening shifts or specific days.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Conduct root cause analysis (e.g., fishbone diagrams) to uncover systemic issues like scheduling inefficiencies.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Improve Phase -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein" style="animation-delay: 0.6s;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-arrow-up-circle me-2 text-primary"></i>Improve: Implement Solutions</h5>
+                  <p class="text-muted">Apply data-driven solutions to reduce wait times, focusing on process optimization and resource allocation.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tip:</strong> Adjust staffing dynamically based on predicted peak hours from our tool (e.g., increase nurses during high-urgency periods).</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Introduce priority queuing for high-urgency patients to ensure faster processing.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Offer appointment scheduling during off-peak hours to balance patient load.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Control Phase -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein" style="animation-delay: 0.8s;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-lock me-2 text-primary"></i>Control: Sustain Improvements</h5>
+                  <p class="text-muted">Establish controls to maintain reduced wait times and ensure long-term efficiency.</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tip:</strong> Regularly monitor wait times using our predictor and adjust schedules as needed.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Train staff on Six Sigma principles to maintain process discipline and continuous improvement.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Implement standard operating procedures (SOPs) for triage and patient flow management.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Six Sigma Integration -->
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 h-100 animate-fadein" style="animation-delay: 1s;">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold"><i class="bi bi-gear-wide-connected me-2 text-primary"></i>Six Sigma: Minimize Variability</h5>
+                  <p class="text-muted">Six Sigma focuses on reducing process variability to achieve near-perfect operations (3.4 defects per million opportunities).</p>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Tip:</strong> Use statistical process control (SPC) charts to monitor wait time consistency.</li>
+                    <li class="list-group-item"><strong>Tip:</strong> Leverage our AI model to predict and mitigate variability caused by fluctuating patient volumes.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="text-center mt-5">
+            <a href="{{ url_for('formpage') }}" class="btn btn-primary btn-lg shadow-sm">Predict Wait Times Now <i class="bi bi-arrow-right ms-2"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visual Section: Enhanced with Image -->
+      <section class="py-5 bg-light text-center">
+        <div class="container">
+          <img src="https://www.isixsigma.com/wp-content/uploads/2010/02/shutterstock_1888804930-scaled.jpg" alt="Optimized Hospital Workflow" class="img-fluid rounded shadow animate-slidein" style="max-height: 400px;">
+          <p class="text-muted mt-3">Streamline hospital operations with data-driven insights and Six Sigma methodology.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-muted">
+      © 2025 — Hospital AI · Built with Flask & XGBoost
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </body>
+</html>
