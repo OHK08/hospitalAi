@@ -49,4 +49,8 @@ flowchart LR
 
 **Status:** 🚧 In Progress – Model selection and tuning underway.
 
-
+---
+### To Run phase1_eda_app.py
+```bash
+python -m streamlit run app/phase1_eda_app.py
+```
