@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital AI Chatbot</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h2 class="fw-bold">OpsVitals ChatBot</h2>
+      <div class="d-flex gap-2">
+        <a href="{{ url_for('formpage') }}" class="btn btn-outline-dark">New Prediction</a>
+        <a href="{{ url_for('homepage') }}" class="btn btn-outline-dark">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Chat Section -->
+<div class="chat-container animate__animated animate__fadeIn d-flex justify-content-center align-items-start gap-4">
+
+  <!-- Animated Character (left side) -->
+  <div class="character-container text-center">
+    <div id="character-animation" class="character-img" style="width:250px; height:250px;"></div>
+  </div>
+
+  <!-- Chatbox + Input (right side) -->
+  <div class="chat-panel d-flex flex-column flex-grow-1">
+    <!-- Chatbox -->
+    <div id="chat-box" class="chat-box mb-3">
+      <div class="bot-message chat-message">
+        👋 Hi! I’m OpsVitals, your Hospital AI Assistant. How can I help you reduce wait times today?
+      </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input d-flex">
+      <input type="text" id="user-input" class="form-control me-2" placeholder="Type your message..."
+             onkeydown="if(event.key==='Enter'){sendMessage();}">
+      <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    © 2025 — OpsVitals · Built with Flask & XGBoost
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Load Lottie animation
+      lottie.loadAnimation({
+        container: document.getElementById("character-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "{{ url_for('static', filename='lottie/AI bot.json') }}",
+        rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice" // crop edges instead of showing empty space
+  }
+      });
+    });
+
+    async function sendMessage() {
+      const userInput = document.getElementById("user-input");
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      const chatBox = document.getElementById("chat-box");
+
+      // Show user message
+      chatBox.innerHTML += `<div class="user-message chat-message">${message}</div>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      userInput.value = "";
+
+      // Typing indicator
+      const typingIndicator = document.createElement("div");
+      typingIndicator.className = "bot-message chat-message typing";
+      typingIndicator.innerHTML = "💬 Typing...";
+      chatBox.appendChild(typingIndicator);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const response = await fetch("/get_response", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: message })
+        });
+
+        const data = await response.json();
+        typingIndicator.remove();
+
+        // Show bot reply
+        chatBox.innerHTML += `<div class="bot-message chat-message">${data.response}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+      } catch (error) {
+        typingIndicator.remove();
+        chatBox.innerHTML += `<div class="bot-message chat-message text-danger">⚠️ Error connecting to server.</div>`;
+      }
+    }
+  </script>
+</body>
+</html>

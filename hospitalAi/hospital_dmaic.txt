@@ -1,0 +1,129 @@
+# Hospital Wait Time Reduction Knowledge Base
+# Using Six Sigma DMAIC Methodology
+
+## Registration Bottleneck
+Problem:
+Registration delays occur due to manual paperwork, insufficient counters, or peak-hour surges.
+
+DMAIC Steps:
+- Define: State the problem clearly, e.g., “Average registration time is 20 minutes.”
+- Measure: Collect data on arrival times, check-in duration, and staff availability.
+- Analyze: Identify peak hours, bottleneck counters, and repeated manual tasks.
+- Improve:
+  1. Introduce online pre-registration portals where patients fill forms before arrival.
+  2. Install self-service kiosks with QR/barcode scanning.
+  3. Use electronic health records (EHR) to auto-fetch patient history.
+  4. Cross-train staff to handle multiple tasks.
+- Control: Set service level targets (e.g., <5 minutes per patient). Audit performance weekly.
+
+Sustain:
+- Monitor registration dashboards daily.
+- Adjust staffing schedules to match peak demand.
+- Collect patient feedback on registration ease.
+
+---
+
+## Triage Bottleneck
+Problem:
+Triage delays occur when patient assessment is slow, documentation is manual, or staff are overburdened.
+
+DMAIC Steps:
+- Define: Specify problem, e.g., “Patients wait 15 minutes before triage nurse assessment.”
+- Measure: Track time between patient arrival and triage completion.
+- Analyze: Identify delays caused by documentation, limited staff, or mis-prioritization.
+- Improve:
+  1. Introduce digital triage forms with dropdowns/checklists.
+  2. Implement quick-assessment tools (e.g., ESI scales).
+  3. Allocate extra triage staff during peak hours.
+  4. Train nurses on rapid assessment techniques.
+- Control: Monitor triage times with a real-time dashboard.
+
+Sustain:
+- Periodically retrain staff.
+- Update triage protocols to reflect latest evidence-based guidelines.
+
+---
+
+## Lab Delays
+Problem:
+Lab result delays affect diagnosis, treatment initiation, and patient flow.
+
+DMAIC Steps:
+- Define: Example: “Lab reports are delayed by an average of 1 hour.”
+- Measure: Track sample collection-to-report turnaround time.
+- Analyze: Identify steps causing delay—sample transport, testing, or reporting.
+- Improve:
+  1. Use pneumatic tube systems or dedicated staff for fast sample transport.
+  2. Automate lab analyzers for common tests.
+  3. Enable electronic result delivery to doctors’ dashboards.
+  4. Separate STAT (urgent) samples from routine tests.
+- Control: Track daily average TAT (turnaround time) and set SLA targets.
+
+Sustain:
+- Periodic maintenance of lab machines.
+- Review workload distribution among technicians.
+
+---
+
+## Consultation Delays
+Problem:
+Consultation delays occur due to overbooked schedules, uneven doctor allocation, or lengthy consultations.
+
+DMAIC Steps:
+- Define: State issue, e.g., “Patients wait 40 minutes to see a doctor after triage.”
+- Measure: Record time between triage completion and doctor consultation.
+- Analyze: Check if delays are due to uneven doctor distribution, lengthy consultations, or poor scheduling.
+- Improve:
+  1. Implement appointment scheduling systems with time slots.
+  2. Introduce teleconsultation for follow-ups.
+  3. Allocate doctors based on patient load and specialty demand.
+  4. Use scribes or assistants to handle documentation so doctors focus on patients.
+- Control: Track consultation times and reschedule based on trends.
+
+Sustain:
+- Regularly balance OPD schedules.
+- Collect patient satisfaction feedback.
+
+---
+
+## Discharge Delays
+Problem:
+Discharge delays occur due to pending clearances, late paperwork, or pharmacy bottlenecks.
+
+DMAIC Steps:
+- Define: Example: “Average discharge time is 3 hours after decision.”
+- Measure: Capture time from discharge decision to patient exit.
+- Analyze: Identify causes (billing, pharmacy delays, paperwork).
+- Improve:
+  1. Start discharge planning at admission (preparing documents early).
+  2. Use discharge checklists for doctors, nurses, and billing staff.
+  3. Introduce electronic billing and prescription forwarding to pharmacy.
+  4. Create a discharge lounge where patients wait comfortably after clearance.
+- Control: Track discharge TAT and aim for <1 hour.
+
+Sustain:
+- Regular audits of discharge records.
+- Continuous staff training on discharge workflow.
+
+---
+
+## Overall Wait Time Reduction
+Problem:
+Long wait times across multiple departments reduce patient satisfaction and increase hospital crowding.
+
+DMAIC Steps:
+- Define: Clearly state issue, e.g., “Average total OPD journey takes 2 hours.”
+- Measure: Map patient journey—arrival to exit—recording times at each step.
+- Analyze: Use Value Stream Mapping (VSM) or Pareto charts to identify major bottlenecks.
+- Improve:
+  1. Streamline workflows across departments.
+  2. Introduce digital queue management with real-time wait time display.
+  3. Use predictive analytics to forecast patient load and adjust staffing.
+  4. Apply Lean tools (5S, Kaizen) to remove wasteful steps.
+- Control: Create a hospital performance dashboard tracking wait times.
+
+Sustain:
+- Periodic Kaizen events for continuous improvement.
+- Patient feedback surveys to measure satisfaction trends.
+
+---
